@@ -1,0 +1,230 @@
+#:kivy 2.2.1
+<nbook>:
+    GridLayout:
+        cols: 1
+        spacing: '10sp'
+
+        Label:
+            markup: True
+            text: "Reserve [b]regular[/b] tickets"
+            font_size: '30sp'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "From:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDTextField:
+                mode: "rectangle"
+                hint_text: "Start location"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '20sp'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "To:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDTextField:
+                mode: "rectangle"
+                hint_text: "Destination"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '20sp'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "Ride Date:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDRectangleFlatButton:
+                id: rdbutton
+                text: "Pick a date..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '20sp'
+                on_release: root.pickdate()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "Ride Time:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDRectangleFlatButton:
+                id: rtbutton
+                text: "Pick a time..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '20sp'
+                on_release: root.picktime()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            height: '60sp'  # Set a fixed height for the button row
+
+            MDRectangleFlatIconButton:
+                markup: True
+                icon: "sync"
+                text: "Reserve [b]recurring[/b] tickets"
+                font_size: '25sp'
+                size_hint: (.5,1)
+                on_release: root.manager.current = "rbook"
+            MDRaisedButton:
+                markup: True
+                text: "Proceed"
+                font_size: '25sp'
+                size_hint: (.5,1)
+        BoxLayout:
+            orientation: 'horizontal'
+            MDIconButton:
+                icon: "home-outline"
+                size_hint_x: .25
+            MDIconButton:
+                icon: "ticket-outline"
+                size_hint_x: .25
+            MDIconButton:
+                icon: "ticket-percent"
+                size_hint_x: .25
+            MDIconButton:
+                icon: "account-outline"
+                size_hint_x: .25
+            
+<rbook>:
+    GridLayout:
+        cols: 1
+        spacing: '10sp'
+
+        Label:
+            markup: True
+            text: "Reserve [b]recurring[/b] tickets"
+            font_size: '30sp'
+            size_hint_x: 0.5
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "From:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDTextField:
+
+                mode: "rectangle"
+                hint_text: "Start location"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '20sp'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "To:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDTextField:
+                mode: "rectangle"
+                hint_text: "Destination"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '20sp'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "Ride Date:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDRectangleFlatButton:
+                id: rdbutton
+                text: "Pick a date..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '20sp'
+                on_release: root.pickdate()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            Label:
+                text: "Ride Time:"
+                size_hint_x: 0.2
+                font_size: '25sp'
+
+            MDRectangleFlatButton:
+                id: rtbutton
+                text: "Pick a time..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '20sp'
+                on_release: root.picktime()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            height: '60sp'  # Set a fixed height for the button row
+
+            MDRectangleFlatIconButton:
+                markup: True
+                icon: "sync"
+                text: "Reserve [b]regular[/b] tickets"
+                font_size: '25sp'
+                size_hint: (.5,1)
+                on_release: root.manager.current = "nbook"
+            MDRaisedButton:
+                markup: True
+                text: "Proceed"
+                font_size: '25sp'
+                size_hint: (.5,1)
+        BoxLayout:
+            orientation: 'horizontal'
+            MDIconButton:
+                icon: "home-outline"
+                size_hint_x: .25
+            MDIconButton:
+                icon: "ticket-outline"
+                size_hint_x: .25
+            MDIconButton:
+                icon: "ticket-percent"
+                size_hint_x: .25
+            MDIconButton:
+                icon: "account-outline"
+                size_hint_x: .25
+                 
+        
