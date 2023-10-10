@@ -35,7 +35,7 @@ class nbook2(MDScreen): #Next regular ticket screen
 class Duber(MDApp):
     def build(self):
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Purple"  # "Purple", "Red"
+        self.theme_cls.primary_palette = "Yellow"
         sm = ScreenManager()
         sm.add_widget(nbook(name="nbook"))
         sm.add_widget(rbook(name="rbook"))
