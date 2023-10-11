@@ -17,14 +17,14 @@
             Label:
                 text: "From:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDTextField:
-                mode: "rectangle"
-                hint_text: "Start location"
+                mode: "fill"
+                hint_text: "Enter start location"
                 multiline: False
                 size_hint_x: 0.6
-                font_size: '20sp'
+                font_size: '22sp'
 
         BoxLayout:
             orientation: 'horizontal'
@@ -34,14 +34,14 @@
             Label:
                 text: "To:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDTextField:
-                mode: "rectangle"
-                hint_text: "Destination"
+                mode: "fill"
+                hint_text: "Enter destination"
                 multiline: False
                 size_hint_x: 0.6
-                font_size: '20sp'
+                font_size: '22sp'
 
         BoxLayout:
             orientation: 'horizontal'
@@ -51,14 +51,14 @@
             Label:
                 text: "Ride Date:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDRectangleFlatButton:
                 id: rdbutton
                 text: "Pick a date..."
                 size_hint_x: 0.6
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                font_size: '20sp'
+                font_size: '22sp'
                 on_release: root.pickdate()
 
         BoxLayout:
@@ -69,16 +69,30 @@
             Label:
                 text: "Ride Time:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDRectangleFlatButton:
                 id: rtbutton
                 text: "Pick a time..."
                 size_hint_x: 0.6
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                font_size: '20sp'
+                font_size: '22sp'
                 on_release: root.picktime()
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            Label:
+                text: "People:"
+                size_hint_x: 0.2
+                font_size: '22sp'
 
+            MDTextField:
+                hint_text: "Enter amount of people"
+                mode: "fill"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
         BoxLayout:
             orientation: 'horizontal'
             spacing: '10sp'
@@ -89,13 +103,13 @@
                 markup: True
                 icon: "sync"
                 text: "Reserve [b]recurring[/b] tickets"
-                font_size: '25sp'
+                font_size: '22sp'
                 size_hint: (.5,1)
                 on_release: root.manager.current = "rbook"
             MDRaisedButton:
                 markup: True
                 text: "Proceed"
-                font_size: '25sp'
+                font_size: '22sp'
                 size_hint: (.5,1)
         BoxLayout:
             orientation: 'horizontal'
@@ -119,7 +133,8 @@
 
         Label:
             markup: True
-            text: "Reserve [b]recurring[/b] tickets"
+            halign: "center"
+            text: "Reserve [b]recurring[/b] tickets \n[size=19](Rides start at least tomorrow)[/size]"
             font_size: '30sp'
             size_hint_x: 0.5
 
@@ -131,15 +146,14 @@
             Label:
                 text: "From:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDTextField:
-
-                mode: "rectangle"
-                hint_text: "Start location"
+                mode: "fill"
+                hint_text: "Enter start location"
                 multiline: False
                 size_hint_x: 0.6
-                font_size: '20sp'
+                font_size: '22sp'
 
         BoxLayout:
             orientation: 'horizontal'
@@ -149,14 +163,14 @@
             Label:
                 text: "To:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDTextField:
-                mode: "rectangle"
-                hint_text: "Destination"
+                mode: "fill"
+                hint_text: "Enter destination"
                 multiline: False
                 size_hint_x: 0.6
-                font_size: '20sp'
+                font_size: '22sp'
 
         BoxLayout:
             orientation: 'horizontal'
@@ -164,16 +178,16 @@
             padding: '10sp'
 
             Label:
-                text: "Ride Date:"
+                text: "Ride Dates:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDRectangleFlatButton:
                 id: rdbutton
                 text: "Pick a date..."
                 size_hint_x: 0.6
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                font_size: '20sp'
+                font_size: '22sp'
                 on_release: root.pickdate()
 
         BoxLayout:
@@ -184,15 +198,31 @@
             Label:
                 text: "Ride Time:"
                 size_hint_x: 0.2
-                font_size: '25sp'
+                font_size: '22sp'
 
             MDRectangleFlatButton:
                 id: rtbutton
                 text: "Pick a time..."
                 size_hint_x: 0.6
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                font_size: '20sp'
+                font_size: '22sp'
                 on_release: root.picktime()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            Label:
+                text: "People:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+
+            MDTextField:
+                mode: "fill"
+                hint_text: "Enter amount of people"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
 
         BoxLayout:
             orientation: 'horizontal'
@@ -204,13 +234,13 @@
                 markup: True
                 icon: "sync"
                 text: "Reserve [b]regular[/b] tickets"
-                font_size: '25sp'
+                font_size: '22sp'
                 size_hint: (.5,1)
                 on_release: root.manager.current = "nbook"
             MDRaisedButton:
                 markup: True
                 text: "Proceed"
-                font_size: '25sp'
+                font_size: '22sp'
                 size_hint: (.5,1)
         BoxLayout:
             orientation: 'horizontal'
