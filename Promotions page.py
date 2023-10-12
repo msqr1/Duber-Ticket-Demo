@@ -37,6 +37,10 @@ class PromotionApp(App):
         popup = Popup(title='Promotion Details', content=popup_content, size_hint=(None, None), size=(400, 200))
         popup.open()
 
+    def on_stop(self):
+        # Saves the promotions using JSON
+        with open("promotions.json", "w") as json_file:
+            json.dump(self.promotions, json_file, indent=4)
 
 if __name__ == '__main__':
     PromotionApp().run()
