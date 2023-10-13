@@ -10,7 +10,7 @@ from kivy.core.window import Window
 from kivymd.uix.textfield import MDTextField
 
 Window.size=(300,450)
-KV='''
+KV = '''
 Screen:
     MDCard:
         size_hint: None, None
@@ -18,24 +18,31 @@ Screen:
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
         elevation: 10
         padding: 65
-        spacing: 35
+        spacing: 10
         orientation: 'vertical'
         MDIcon:
             icon: 'account'
             icon_color: 0, 0, 0, 0
-            haling: 'center'
+            halign: 'center'
             font_size: 180
-        
+
         MDTextField:
             mode: 'round'
             id: user2
             icon_left: ""
-            hint_text: "name of the user..."
+            hint_text: "Username"
             foreground_color: 1, 0, 1, 1
             size_hint_x: None
             width: 220
             font_size: 20
-            pos_hint: {"center_x": 0.5}
+            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
+        MDFillRoundFlatButton:
+            text: "Edit Name" 
+            on_release: app.edit_name()
+            size_hint: None, None
+            size: "200dp", "48dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}  
+        
         MDTextField:
             mode: 'round'
             id: password
@@ -45,13 +52,26 @@ Screen:
             size_hint_x: None
             width: 220
             font_size: 20
-            pos_hint: {"center_x": 0.5}
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}  
             password: True
+        MDFillRoundFlatButton:
+            text: "Edit Password"  
+            on_release: app.change_password()
+            size_hint: None, None
+            size: "200dp", "48dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.4} 
+        
+        Widget:
+            size_hint_y: None
+            height: "20dp"
         
         MDFillRoundFlatButton:
-            text: "Change the Password"
-
+            text: "Log out"
+            size_hint: None, None
+            size: "200dp", "48dp"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5} 
 '''
+
 
 class ProfilePage(MDApp):
     dialog = None #
