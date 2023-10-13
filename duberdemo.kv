@@ -1,0 +1,273 @@
+#:kivy 2.2.1
+<nbook1>:
+    MDBoxLayout:
+        orientation: 'vertical'  
+
+        MDLabel:
+            markup: True
+            text: "Reserve [b]regular[/b] tickets"
+            font_size: '30sp'
+            halign: "center"
+    
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "From:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+                
+            MDTextField:
+                id: sl
+                mode: "fill"
+                hint_text: "Enter start location"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
+                on_text: root.recordInputs(self.text, 'sl')
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "To:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+
+            MDTextField:
+                id: dst
+                mode: "fill"
+                hint_text: "Enter destination"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
+                on_text: root.recordInputs(self.text, 'dst')
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "Ride date:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+            MDRectangleFlatButton:
+                id: sd
+                text: "Pick a date..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '22sp'
+                on_release: root.pickDate()
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "Ride Time:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+            MDRectangleFlatButton:
+                id: st
+                text: "Pick a time..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '22sp'
+                on_release: root.pickTime()
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            MDLabel:
+                text: "People:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+            MDTextField:
+                id: ppl
+                hint_text: "Enter amount of people"
+                mode: "fill"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
+                on_text: root.recordInputs(self.text, 'ppl')
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            height: '60sp'  # Set a fixed height for the button row
+
+            MDRectangleFlatIconButton:
+                markup: True
+                icon: "sync"
+                text: "Reserve [b]recurring[/b] tickets"
+                font_size: '22sp'
+                size_hint: (.5,1)
+                on_release: root.manager.current = "rbook1"
+            MDRaisedButton:
+                markup: True
+                text: "Proceed"
+                font_size: '22sp'
+                size_hint: (.5,1)
+                on_release: root.proceed()
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDIconButton:
+                icon: "ticket-outline"
+                size_hint_x: .33
+                on_release: root.switchScreen()
+            MDIconButton:
+                icon: "ticket-percent"
+                size_hint_x: .33
+                on_release: root.manager.current = "promo"
+            MDIconButton:
+                icon: "account-outline"
+                size_hint_x: .33
+            
+<rbook1>:
+    MDBoxLayout:
+        orientation: 'vertical' 
+
+        MDLabel:
+            markup: True
+            text: "Reserve [b]recurring[/b] tickets \n[size=19](Rides start at least tomorrow)[/size]"
+            font_size: '30sp'
+            halign: "center"
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "From:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+
+            MDTextField:
+                id: sl
+                mode: "fill"
+                hint_text: "Enter start location"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
+                on_text: root.recordInputs(self.text, 'sl')
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "To:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+
+            MDTextField:
+                id: dst
+                mode: "fill"
+                hint_text: "Enter destination"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
+                on_text: root.recordInputs(self.text, 'dst')
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "Ride Dates:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+
+            MDRectangleFlatButton:
+                id: sd
+                text: "Pick a date..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '22sp'
+                on_release: root.pickDate()
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+
+            MDLabel:
+                text: "Ride Time:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+
+            MDRectangleFlatButton:
+                id: st
+                text: "Pick a time..."
+                size_hint_x: 0.6
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                font_size: '22sp'
+                on_release: root.pickTime()
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            MDLabel:
+                text: "People:"
+                size_hint_x: 0.2
+                font_size: '22sp'
+                halign: "center"
+
+            MDTextField:
+                id: ppl
+                mode: "fill"
+                hint_text: "Enter amount of people"
+                multiline: False
+                size_hint_x: 0.6
+                font_size: '22sp'
+                on_text: root.recordInputs(self.text, 'ppl')
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: '10sp'
+            padding: '10sp'
+            height: '60sp'  # Set a fixed height for the button row
+
+            MDRectangleFlatIconButton:
+                markup: True
+                icon: "sync"
+                text: "Reserve [b]regular[/b] tickets"
+                font_size: '22sp'
+                size_hint: (.5,1)
+                on_release: root.manager.current = "nbook1"
+            MDRaisedButton:
+                markup: True
+                text: "Proceed"
+                font_size: '22sp'
+                size_hint: (.5,1)
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDIconButton:
+                icon: "ticket-outline"
+                size_hint_x: .33
+                on_release: root.switchScreen()
+            MDIconButton:
+                icon: "ticket-percent"
+                size_hint_x: .33
+                on_release: root.manager.current = "promo"
+            MDIconButton:
+                icon: "account-outline"
+                size_hint_x: .33
