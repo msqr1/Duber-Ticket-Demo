@@ -53,7 +53,7 @@ Screen:
 
 '''
 
-class LoginApp(MDApp):
+class ProfilePage(MDApp):
     dialog = None #
     
     def build(self):
@@ -69,4 +69,4 @@ class LoginApp(MDApp):
     def close(self):
          self.dialog.dismiss()
 
-LoginApp().run()
+ProfilePage().run()
