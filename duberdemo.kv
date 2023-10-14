@@ -2,13 +2,11 @@
 <nbook1>:
     MDBoxLayout:
         orientation: 'vertical'  
-
         MDLabel:
             markup: True
             text: "Reserve [b]regular[/b] tickets"
             font_size: '30sp'
             halign: "center"
-    
         MDBoxLayout:
             orientation: 'horizontal'
             spacing: '10sp'
@@ -133,6 +131,7 @@
                 on_release: root.manager.current = "promo"
             MDIconButton:
                 icon: "account-outline"
+                on_release: root.manager.current = "usrProfile"
                 size_hint_x: .33
             
 <rbook1>:
@@ -260,6 +259,7 @@
                 size_hint: (.5,1)
         MDBoxLayout:
             orientation: 'horizontal'
+
             MDIconButton:
                 icon: "ticket-outline"
                 size_hint_x: .33
@@ -270,4 +270,60 @@
                 on_release: root.manager.current = "promo"
             MDIconButton:
                 icon: "account-outline"
+                on_release: root.manager.current = "usrProfile"
                 size_hint_x: .33
+<usrProfile>:
+    MDCard:
+        size_hint: None, None
+        size: 300, 450
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        elevation: 10
+        padding: 65
+        spacing: 35
+        orientation: 'vertical'
+        MDIcon:
+            icon: 'account'
+            icon_color: 0, 0, 0, 0
+            haling: 'center'
+            font_size: 180
+        
+        MDTextField:
+            mode: 'round'
+            id: user2
+            icon_left: "account"
+            hint_text: "test_user"
+            foreground_color: 1, 0, 1, 1
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x": 0.5}
+        MDTextField:
+            mode: 'round'
+            id: password
+            icon_left: "key-variant"
+            hint_text: "********"
+            foreground_color: 1, 0, 1, 1
+            size_hint_x: None
+            width: 220
+            font_size: 20
+            pos_hint: {"center_x": 0.5}
+            password: True
+        
+        MDFillRoundFlatButton:
+            text: "Change Password"
+            
+    MDBoxLayout:
+        orientation: 'horizontal'
+
+        MDIconButton:
+            icon: "ticket-outline"
+            size_hint_x: .33
+            on_release: root.switchScreen()
+        MDIconButton:
+            icon: "ticket-percent"
+            size_hint_x: .33
+            on_release: root.manager.current = "promo"
+        MDIconButton:
+            icon: "account-outline"
+            size_hint_x: .33
+        
